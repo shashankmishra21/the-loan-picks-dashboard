@@ -1,11 +1,9 @@
 'use client'
-
 import { useEffect, useState } from 'react'
 import { Product } from '@/types/loan'
 import { ProductCard } from '@/components/ProductCard'
 import { ChatSheet } from '@/components/ChatSheet'
 import { FilterBar, FilterValues } from '@/components/FilterBar'
-
 
 export default function DashboardPage() {
     const [products, setProducts] = useState<Product[]>([])
@@ -39,6 +37,17 @@ export default function DashboardPage() {
         }
     }
 
+    const handleAskQuestion = (product: Product) => {
+        setSelectedProduct(product)
+        setChatOpen(true)
+    }
+
+    const handleChatClose = (open: boolean) => {
+        setChatOpen(open)
+        if (!open) {
+            setSelectedProduct(null)
+        }
+    }
 
     if (loading) {
         return (
@@ -53,10 +62,6 @@ export default function DashboardPage() {
     const topProducts = products.slice(0, 5)
     const bestMatch = topProducts[0]
     const otherMatches = topProducts.slice(1)
-    const handleAskQuestion = (product: Product) => {
-        setSelectedProduct(product)
-        setChatOpen(true)
-    }
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -73,19 +78,23 @@ export default function DashboardPage() {
                         </div>
                     )}
 
+
                     {otherMatches.length > 0 && (
                         <>
                             <h2 className="text-xl font-semibold mt-8 mb-4">More Matches for You</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                                 {otherMatches.map((product) => (
-                                    <ProductCard key={product.id} product={product} onAskQuestion={() => handleAskQuestion(bestMatch)} />
+                                    <ProductCard key={product.id} product={product} onAskQuestion={() => handleAskQuestion(product)} />
                                 ))}
                             </div>
                         </>
                     )}
                 </div>
             </div>
-            <ChatSheet product={selectedProduct} open={chatOpen} onOpenChange={setChatOpen} />
+
+
+            <ChatSheet product={selectedProduct} open={chatOpen} onOpenChange={handleChatClose}
+            />
         </div>
     )
 }

@@ -93,7 +93,7 @@ export function FilterBar({ onFilter }: FilterBarProps) {
       </div>
 
       <div className="flex gap-2 mt-4">
-        <Button onClick={applyFilters} className="bg-[#001143] hover:bg-[#002a6b]">
+        <Button onClick={applyFilters} className="bg-[#18e070] text-black hover:bg-[#18e070] font-semibold">
           Apply Filters
         </Button>
         <Button onClick={resetFilters} variant="outline">
