@@ -37,14 +37,8 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
                 {product.name}
             </h3>
 
-            <div className={`text-center py-4 rounded-xl mb-4 ${isBestMatch
-                ? 'bg-white/10 backdrop-blur-sm'
-                : 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400'
-                }`}>
-                <div className={`text-3xl font-bold ${isBestMatch
-                    ? 'text-white'
-                    : 'text-white'
-                    }`}>
+            <div className={`text-center py-4 rounded-xl mb-4 ${isBestMatch ? 'bg-white/10 backdrop-blur-sm' : 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400'}`}>
+                <div className={`text-3xl font-bold ${isBestMatch ? 'text-white' : 'text-white'}`}>
                     {product.rate_apr}%
                 </div>
                 <div className={`text-xs mt-1 ${isBestMatch ? 'opacity-80' : 'text-white'}`}>
@@ -59,14 +53,7 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
             {badges.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-4">
                     {badges.map((badge, index) => (
-                        <Badge
-                            key={index}
-                            variant={badge.variant}
-                            className={`text-xs ${isBestMatch
-                                ? 'bg-white/20 text-white hover:bg-white/30'
-                                : ''
-                                }`}
-                        >
+                        <Badge key={index} variant={badge.variant} className={`text-xs ${isBestMatch ? 'bg-white/20 text-white hover:bg-white/30' : ''}`} >
                             {badge.text}
                         </Badge>
                     ))}
@@ -93,22 +80,18 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
             </div>
 
             <div className="flex gap-2">
-                <Button
-                    variant={isBestMatch ? "secondary" : "outline"}
-                    className="flex-1"
-                    onClick={onAskQuestion}
-                >
-                    Ask Questions
-                </Button>
+                
+                <Button variant={isBestMatch ? "secondary" : "outline"} className={`flex-1 ${isBestMatch ? 'border-2 border-white text-white hover:bg-white/10' : ''}`} onClick={onAskQuestion}> Ask Questions </Button>
                 <Button
                     className={`flex-1 ${isBestMatch
-                        ? 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
+                        ? 'bg-[#18e070] text-black hover:bg-[#18e070] font-semibold'
                         : 'bg-[#18e070] text-black hover:bg-[#18e070] font-semibold'
-                        }`}
-                >
+                        }`} >
                     Apply Now
                 </Button>
             </div>
+
+
         </Card>
     )
 }

@@ -49,23 +49,12 @@ export function FilterBar({ onFilter }: FilterBarProps) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
           <Label htmlFor="bank" className="text-sm">Bank</Label>
-          <Input
-            id="bank"
-            placeholder="e.g. HDFC"
-            value={bank}
-            onChange={(e) => setBank(e.target.value)}
-          />
+          <Input id="bank" placeholder="e.g. HDFC" value={bank} onChange={(e) => setBank(e.target.value)} />
         </div>
 
         <div>
           <Label htmlFor="income" className="text-sm">Min Income (₹)</Label>
-          <Input
-            id="income"
-            type="number"
-            placeholder="e.g. 25000"
-            value={minIncome}
-            onChange={(e) => setMinIncome(e.target.value)}
-          />
+          <Input id="income" type="number" placeholder="e.g. 25000"  value={minIncome} onChange={(e) => setMinIncome(e.target.value)} />
         </div>
 
         <div>
@@ -93,12 +82,8 @@ export function FilterBar({ onFilter }: FilterBarProps) {
       </div>
 
       <div className="flex gap-2 mt-4">
-        <Button onClick={applyFilters} className="bg-[#18e070] text-black hover:bg-[#18e070] font-semibold">
-          Apply Filters
-        </Button>
-        <Button onClick={resetFilters} variant="outline">
-          Reset
-        </Button>
+        <Button onClick={applyFilters} className="bg-[#18e070] text-black hover:bg-[#18e070] font-semibold">Apply Filters</Button>
+        <Button onClick={resetFilters} variant="outline">Reset</Button>
       </div>
     </div>
   )
