@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { Product } from '@/types/loan'
 import { ProductCard } from '@/components/ProductCard'
 import { ChatSheet } from '@/components/ChatSheet'
+import { FilterBar, FilterValues } from '@/components/FilterBar'
+
 
 export default function DashboardPage() {
     const [products, setProducts] = useState<Product[]>([])
@@ -15,9 +17,19 @@ export default function DashboardPage() {
         fetchProducts()
     }, [])
 
-    const fetchProducts = async () => {
+    const fetchProducts = async (filters?: FilterValues) => {
         try {
-            const res = await fetch('/api/products')
+            const params = new URLSearchParams()
+
+            if (filters?.bank) params.append('bank', filters.bank)
+            if (filters?.minIncome) params.append('minIncome', filters.minIncome.toString())
+            if (filters?.minCreditScore) params.append('minCreditScore', filters.minCreditScore.toString())
+            if (filters?.maxApr) {
+                params.append('minApr', '0')
+                params.append('maxApr', filters.maxApr.toString())
+            }
+
+            const res = await fetch(`/api/products?${params.toString()}`)
             const data = await res.json()
             setProducts(data.products || [])
         } catch (error) {
@@ -26,6 +38,7 @@ export default function DashboardPage() {
             setLoading(false)
         }
     }
+
 
     if (loading) {
         return (
@@ -50,6 +63,8 @@ export default function DashboardPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">Your Top Loan Matches</h1>
                 <p className="text-gray-600 mb-8">Personalized loans based on your profile</p>
+
+                <FilterBar onFilter={fetchProducts} />
 
                 <div className="space-y-6">
                     {bestMatch && (

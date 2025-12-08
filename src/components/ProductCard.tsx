@@ -103,7 +103,7 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
                 <Button
                     className={`flex-1 ${isBestMatch
                         ? 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
-                        : 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
+                        : 'bg-[#18e070] text-black hover:bg-[#18e070] font-semibold'
                         }`}
                 >
                     Apply Now
