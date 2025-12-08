@@ -15,9 +15,9 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
     const badges = generateBadges(product)
 
     return (
-        <Card className={`p-5 transition-all hover:shadow-lg ${isBestMatch
-                ? 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400'
-                : 'bg-white'
+        <Card className={`p-6 transition-all hover:shadow-xl shadow-md ${isBestMatch
+            ? 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400'
+            : 'bg-gradient-to-br from-blue-50 to-indigo-50'
             }`}>
             <div className="flex items-center justify-between mb-3">
                 <div>
@@ -38,12 +38,12 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
             </h3>
 
             <div className={`text-center py-4 rounded-xl mb-4 ${isBestMatch
-                    ? 'bg-white/10 backdrop-blur-sm'
-                    : 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400'
+                ? 'bg-white/10 backdrop-blur-sm'
+                : 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400'
                 }`}>
                 <div className={`text-3xl font-bold ${isBestMatch
-                        ? 'text-white'
-                        : 'text-white'
+                    ? 'text-white'
+                    : 'text-white'
                     }`}>
                     {product.rate_apr}%
                 </div>
@@ -63,8 +63,8 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
                             key={index}
                             variant={badge.variant}
                             className={`text-xs ${isBestMatch
-                                    ? 'bg-white/20 text-white hover:bg-white/30'
-                                    : ''
+                                ? 'bg-white/20 text-white hover:bg-white/30'
+                                : ''
                                 }`}
                         >
                             {badge.text}
@@ -102,8 +102,8 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
                 </Button>
                 <Button
                     className={`flex-1 ${isBestMatch
-                            ? 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
-                            : 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
+                        ? 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
+                        : 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
                         }`}
                 >
                     Apply Now
