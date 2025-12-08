@@ -13,7 +13,7 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
   return (
     <Card className={`p-5 transition-all hover:shadow-lg ${
       isBestMatch 
-        ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white border-2 border-purple-500' 
+        ? 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400' 
         : 'bg-white'
     }`}>
       <div className="flex items-center justify-between mb-3">
@@ -37,16 +37,16 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
       <div className={`text-center py-4 rounded-xl mb-4 ${
         isBestMatch 
           ? 'bg-white/10 backdrop-blur-sm' 
-          : 'bg-gradient-to-br from-purple-50 to-blue-50'
+          : 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white border-2 border-blue-400'
       }`}>
         <div className={`text-3xl font-bold ${
           isBestMatch 
             ? 'text-white' 
-            : 'bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent'
+            : 'text-white'
         }`}>
           {product.rate_apr}%
         </div>
-        <div className={`text-xs mt-1 ${isBestMatch ? 'opacity-80' : 'text-gray-600'}`}>
+        <div className={`text-xs mt-1 ${isBestMatch ? 'opacity-80' : 'text-white'}`}>
           Interest Rate p.a.
         </div>
       </div>
@@ -85,8 +85,8 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
         <Button 
           className={`flex-1 ${
             isBestMatch 
-              ? 'bg-yellow-400 text-purple-900 hover:bg-yellow-300' 
-              : 'bg-gradient-to-r from-purple-600 to-blue-600 hover:opacity-90'
+              ? 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold' 
+              : 'bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold'
           }`}
         >
           Apply Now
