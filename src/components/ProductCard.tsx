@@ -27,9 +27,7 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
                     </div>
                 </div>
                 {isBestMatch && (
-                    <Badge className="bg-yellow-400 text-purple-900 hover:bg-yellow-400">
-                        BEST MATCH
-                    </Badge>
+                    <Badge className="bg-yellow-400 text-purple-900 hover:bg-yellow-400"> BEST MATCH </Badge>
                 )}
             </div>
 
@@ -59,6 +57,7 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
                     ))}
                 </div>
             )}
+            
 
             <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
                 <div>
@@ -80,14 +79,13 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
             </div>
 
             <div className="flex gap-2">
-                
+
                 <Button variant={isBestMatch ? "secondary" : "outline"} className={`flex-1 ${isBestMatch ? 'border-2 border-white text-white hover:bg-white/10' : ''}`} onClick={onAskQuestion}> Ask Questions </Button>
                 <Button
                     className={`flex-1 ${isBestMatch
                         ? 'bg-[#18e070] text-black hover:bg-[#18e070] font-semibold'
                         : 'bg-[#18e070] text-black hover:bg-[#18e070] font-semibold'
-                        }`} >
-                    Apply Now
+                        }`} >Apply Now
                 </Button>
             </div>
 

@@ -19,14 +19,17 @@ export async function POST(request: NextRequest) {
       )
     }
 
+
     const response = await askAboutProduct(product, message, history)
 
     return NextResponse.json({ response })
   } catch (error) {
+
     console.error('Chat API error:', error)
     return NextResponse.json(
       { error: 'Failed to process message' },
       { status: 500 }
     )
+    
   }
 }

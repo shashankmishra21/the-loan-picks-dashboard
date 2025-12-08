@@ -19,6 +19,7 @@ export default function DashboardPage() {
         try {
             const params = new URLSearchParams()
 
+
             if (filters?.bank) params.append('bank', filters.bank)
             if (filters?.minIncome) params.append('minIncome', filters.minIncome.toString())
             if (filters?.minCreditScore) params.append('minCreditScore', filters.minCreditScore.toString())
@@ -37,6 +38,7 @@ export default function DashboardPage() {
         }
     }
 
+    
     const handleAskQuestion = (product: Product) => {
         setSelectedProduct(product)
         setChatOpen(true)

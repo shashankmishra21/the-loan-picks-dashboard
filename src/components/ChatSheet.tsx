@@ -26,7 +26,7 @@ export function ChatSheet({ product, open, onOpenChange }: ChatSheetProps) {
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
-    
+
 
     useEffect(() => {
         scrollToBottom()
@@ -94,16 +94,8 @@ export function ChatSheet({ product, open, onOpenChange }: ChatSheetProps) {
                     )}
 
                     {messages.map((msg, idx) => (
-                        <div
-                            key={idx}
-                            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                        >
-                            <div
-                                className={`max-w-[80%] p-3 rounded-2xl ${msg.role === 'user'
-                                        ? 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white rounded-br-sm'
-                                        : 'bg-white shadow-sm border border-gray-200 rounded-bl-sm'
-                                    }`}
-                            >
+                        <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`} >
+                            <div className={`max-w-[80%] p-3 rounded-2xl ${msg.role === 'user' ? 'bg-gradient-to-br from-[#001143] to-[#002a6b] text-white rounded-br-sm' : 'bg-white shadow-sm border border-gray-200 rounded-bl-sm'}`} >
                                 <p className="text-sm leading-relaxed">{msg.content}</p>
                             </div>
                         </div>
@@ -121,6 +113,7 @@ export function ChatSheet({ product, open, onOpenChange }: ChatSheetProps) {
                         </div>
                     )}
 
+
                     <div ref={messagesEndRef} />
                 </div>
 
@@ -134,13 +127,7 @@ export function ChatSheet({ product, open, onOpenChange }: ChatSheetProps) {
                             disabled={loading}
                             className="flex-1"
                         />
-                        <Button
-                            onClick={sendMessage}
-                            disabled={loading || !input.trim()}
-                            className="bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold px-6"
-                        >
-                            Send
-                        </Button>
+                        <Button onClick={sendMessage} disabled={loading || !input.trim()}  className="bg-[#1CFF7D] text-black hover:bg-[#18e070] font-semibold px-6">Send</Button>
                     </div>
                 </div>
             </SheetContent>
