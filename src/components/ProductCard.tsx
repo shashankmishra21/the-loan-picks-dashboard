@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { generateBadges } from '@/lib/badges'
+import { ShareButton } from './ShareButton'
 
 interface ProductCardProps {
     product: Product
@@ -29,6 +30,7 @@ export function ProductCard({ product, isBestMatch = false, onAskQuestion }: Pro
                 {isBestMatch && (
                     <Badge className="bg-yellow-400 text-purple-900 hover:bg-yellow-400"> BEST MATCH </Badge>
                 )}
+                <ShareButton product={product}/>
             </div>
 
             <h3 className={`font-bold text-lg mb-3 ${isBestMatch ? 'text-white' : 'text-gray-900'}`}>
